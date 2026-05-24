@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Football Typing Lab</title>
+  <meta name="description" content="Typy piłkarskie, inteligentne prawdopodobieństwa i live score dla fanów piłki nożnej.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">Football Typing Lab</div>
+        <nav>
+          <a href="#typy">Typy</a>
+          <a href="#live">Live</a>
+          <a href="#algorytm">Algorytm</a>
+        </nav>
+      </div>
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Dla fanatyków piłki nożnej</p>
+          <h1>Typuj wyniki, licz prawdopodobieństwa i śledź mecz na żywo.</h1>
+          <p class="lead">Serwis pokazuje typ 1X2, przewidywany wynik, szanse procentowe oraz live momentum na podstawie danych meczowych.</p>
+          <div class="actions">
+            <a class="btn primary" href="#typy">Zobacz typy</a>
+            <a class="btn secondary" href="#live">Panel live</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="stat"><span>Dzisiaj</span><strong>12 meczów</strong></div>
+          <div class="stat"><span>Najmocniejszy typ</span><strong>1X2</strong></div>
+          <div class="stat"><span>Live confidence</span><strong id="heroConfidence">--%</strong></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="typy" class="section">
+      <div class="container">
+        <h2>Dzisiejsze typy</h2>
+        <div id="predictions" class="grid"></div>
+      </div>
+    </section>
+
+    <section id="live" class="section alt">
+      <div class="container">
+        <h2>Panel live</h2>
+        <div class="live-grid">
+          <div class="panel">
+            <label>Home score <input id="homeScore" type="number" value="1"></label>
+            <label>Away score <input id="awayScore" type="number" value="0"></label>
+            <label>Home xG <input id="homeXg" type="number" step="0.01" value="1.12"></label>
+            <label>Away xG <input id="awayXg" type="number" step="0.01" value="0.74"></label>
+            <label>Minute <input id="minute" type="number" value="62"></label>
+            <button class="btn primary" onclick="refreshLive()">Przelicz live</button>
+          </div>
+          <div class="panel result">
+            <div id="liveResult">Wynik live pojawi się tutaj.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="algorytm" class="section">
+      <div class="container">
+        <h2>Algorytm typowania</h2>
+        <p>Model liczy wynik z formy, xG, strzałów, posiadania, przewagi własnego boiska i ostatniej dyspozycji. Nie jest to gwarancja wyniku, tylko analiza prawdopodobieństwa.</p>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
